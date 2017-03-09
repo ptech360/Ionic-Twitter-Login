@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <button ion-button block color="primary" (click)="twLogin()" *ngIf="!userProfile">
+    <ion-icon name="logo-twitter"></ion-icon>
+    Login with Twitter
+  </button>
+
+  <ion-item *ngIf="userProfile">
+    <ion-avatar item-left>
+      <img [src]="userProfile.photoURL">
+    </ion-avatar>
+    <h2>{{ userProfile.displayName }}</h2>
+    <h3>{{ userProfile.twName }}</h3>
+  </ion-item>
+</ion-content>
