@@ -11,12 +11,12 @@ export class HomePage {
   userProfile: any = null;
   zone: NgZone;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, private twitter: TwitterConnect) {
     this.zone = new NgZone({});
   }
 
   twLogin(): void {
-    TwitterConnect.login().then( response => {
+    this.twitter.login().then( response => {
       const twitterCredential = firebase.auth.TwitterAuthProvider.credential(response.token, response.secret);
 
       firebase.auth().signInWithCredential(twitterCredential).then( userProfile => {

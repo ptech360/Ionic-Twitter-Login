@@ -3,6 +3,10 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { TwitterConnect } from '@ionic-native/twitter-connect';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -16,6 +20,11 @@ import { HomePage } from '../pages/home/home';
     MyApp,
     HomePage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    StatusBar,
+    SplashScreen,
+    TwitterConnect
+  ]
 })
 export class AppModule {}
